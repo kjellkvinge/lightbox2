@@ -157,7 +157,7 @@
       self.album.push({
         link: $link.attr('href'),
         title: $link.attr('data-title') || $link.attr('title'),
-	tags: $link.attr('data-tags').split(' ') || null,
+	tags: $link.attr('data-tags').split(' ') || null
       });
     }
 
@@ -376,13 +376,15 @@
             location.href = $(this).attr('href');
           }
         });
-      var t = this.album[this.currentImageIndex].tags
-      var taghtml = ''
-      for( i=0; i< t.length; i++){
-	if (t[i].length === 0){continue;}
-	taghtml += '<a href="#" class="lightboxtag">#' + t[i] + '</a>'
+      var t = this.album[this.currentImageIndex].tags;
+      var taghtml = '';
+      for (var i = 0; i < t.length; i++) {
+	if (t[i].length === 0) {
+          continue;
+	}
+	taghtml += '<a href="#" class="lightboxtag">#' + t[i] + '</a>';
       }
-    this.$lightbox.find('.lb-tags').html(taghtml)
+      this.$lightbox.find('.lb-tags').html(taghtml);
     }
 
     if (this.album.length > 1 && this.options.showImageNumberLabel) {
